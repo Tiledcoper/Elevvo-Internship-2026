@@ -1,0 +1,52 @@
+GTSDB Traffic Sign Recognition - V3 Final Results
+=================================================
+
+Model: YOLOv8n
+Training image size: 960x960
+Classes: 43
+Train images: 480
+Validation images: 120
+Test images: 300
+
+Validation (120 images, 960x960)
+--------------------------------
+Precision : 0.3478 (34.78%)
+Recall    : 0.3351 (33.51%)
+mAP@50    : 0.3392 (33.92%)
+mAP@50-95 : 0.2959 (29.59%)
+
+Fixed-image benchmark (300 test images, 640x640)
+-------------------------------------------------
+Total time       : 7.530 sec
+Average time     : 25.10 ms/image
+FPS              : 39.84
+Device           : CUDA
+GPU              : NVIDIA GeForce RTX 4060 Laptop GPU
+
+Why performance is limited
+---------------------------
+The main limitation is the dataset structure rather than the inference hardware.
+The project uses 43 traffic-sign classes, but the available dataset contains only
+900 images in total (480 train / 120 validation / 300 test). Several classes have
+very few labeled examples, especially in the validation split, which makes it
+hard for the model to learn and generalize equally well across all classes.
+Traffic signs are also often very small inside full-resolution road scenes and
+appear with complex backgrounds, making detection more difficult.
+
+Improving the model further would benefit from a substantially larger and more
+balanced labeled dataset and additional training experiments. Those experiments
+would also require significantly more GPU time/resources; a stronger GPU/server
+would make higher-resolution and longer training experiments more practical,
+but additional data is the primary improvement needed for generalization.
+
+Important: the reported metrics are validation metrics. The 39.84 FPS figure is
+a fixed-image inference benchmark on the 300-image test set and is not a measured
+webcam FPS.
+
+Deployment
+----------
+PyTorch checkpoint: weights/best.pt
+ONNX model        : weights/best.onnx
+ONNX input        : 960x960
+ONNX opset        : 12
+Webcam confidence : 0.25

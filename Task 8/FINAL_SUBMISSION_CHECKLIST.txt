@@ -1,0 +1,25 @@
+FINAL SUBMISSION CHECKLIST - GTSDB V3
+=====================================
+
+[x] Dataset split included: 480 train / 120 val / 300 test
+[x] 43 GTSDB classes configured in data.yaml
+[x] V3 best.pt included
+[x] V3 best.onnx included
+[x] Validation completed successfully
+[x] Precision recorded: 34.78%
+[x] Recall recorded: 33.51%
+[x] mAP@50 recorded: 33.92%
+[x] mAP@50-95 recorded: 29.59%
+[x] FPS benchmark completed on 300 test images
+[x] FPS recorded: 39.84
+[x] Webcam inference included
+[x] ONNX deployment included
+[x] Confidence threshold included: 0.25
+[x] README updated for V3
+[x] Performance limitation documented: limited/imbalanced labeled data across 43 classes and small signs in complex scenes
+[x] Future improvement documented: larger balanced dataset plus more GPU resources for higher-resolution/longer experiments
+[x] Training script made Windows-safe (workers=0)
+[x] Evaluation script made Windows-safe (workers=0)
+[x] Reproducibility scripts included
+
+No additional training is required for submission.
